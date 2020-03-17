@@ -1675,8 +1675,6 @@ func channelMemberCountsByGroup(c *Context, w http.ResponseWriter, r *http.Reque
 	}
 
 	w.Write(b)
-
-	return
 }
 
 func getChannelModerations(c *Context, w http.ResponseWriter, r *http.Request) {
