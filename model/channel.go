@@ -187,6 +187,12 @@ func ChannelModerationsPatchFromJson(data io.Reader) []*ChannelModerationPatch {
 	return o
 }
 
+func ChannelMemberCountsByGroupFromJson(data io.Reader) []*ChannelMemberCountByGroup {
+	var o []*ChannelMemberCountByGroup
+	json.NewDecoder(data).Decode(&o)
+	return o
+}
+
 func (o *Channel) Etag() string {
 	return Etag(o.Id, o.UpdateAt)
 }

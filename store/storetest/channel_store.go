@@ -2158,7 +2158,7 @@ func testGetMemberCountsByGroup(t *testing.T, ss store.Store) {
 		memberCounts, err = ss.Channel().GetMemberCountsByGroup(c1.Id, false)
 		expectedMemberCounts := []*model.ChannelMemberCountByGroup{}
 		require.Nil(t, err)
-		require.Equal(t, memberCounts, expectedMemberCounts)
+		require.Equal(t, expectedMemberCounts, memberCounts)
 	})
 
 	_, err = ss.Group().UpsertMember(g1.Id, u1.Id)
@@ -2174,7 +2174,7 @@ func testGetMemberCountsByGroup(t *testing.T, ss store.Store) {
 			},
 		}
 		require.Nil(t, err)
-		require.Equal(t, memberCounts, expectedMemberCounts)
+		require.Equal(t, expectedMemberCounts, memberCounts)
 	})
 
 	t.Run("returns memberCountsByGroup with timezones", func(t *testing.T) {
@@ -2187,7 +2187,7 @@ func testGetMemberCountsByGroup(t *testing.T, ss store.Store) {
 			},
 		}
 		require.Nil(t, err)
-		require.Equal(t, memberCounts, expectedMemberCounts)
+		require.Equal(t, expectedMemberCounts, memberCounts)
 	})
 
 	g2 := &model.Group{
@@ -2289,7 +2289,7 @@ func testGetMemberCountsByGroup(t *testing.T, ss store.Store) {
 			},
 		}
 		require.Nil(t, err)
-		require.ElementsMatch(t, memberCounts, expectedMemberCounts)
+		require.ElementsMatch(t, expectedMemberCounts, memberCounts)
 	})
 
 	t.Run("returns memberCountsByGroup for multiple groups with lots of users with timezones", func(t *testing.T) {
@@ -2312,7 +2312,7 @@ func testGetMemberCountsByGroup(t *testing.T, ss store.Store) {
 			},
 		}
 		require.Nil(t, err)
-		require.ElementsMatch(t, memberCounts, expectedMemberCounts)
+		require.ElementsMatch(t, expectedMemberCounts, memberCounts)
 	})
 }
 
