@@ -3261,7 +3261,7 @@ func TestGetChannelMemberCountsByGroup(t *testing.T) {
 	t.Run("Returns users in group without timezones", func(t *testing.T) {
 		memberCounts, _ := th.SystemAdminClient.GetChannelMemberCountsByGroup(channel.Id, false, "")
 		expectedMemberCounts := []*model.ChannelMemberCountByGroup{
-			&model.ChannelMemberCountByGroup{
+			{
 				GroupId:                     th.Group.Id,
 				ChannelMemberCount:          2,
 				ChannelMemberTimezonesCount: 0,
@@ -3273,7 +3273,7 @@ func TestGetChannelMemberCountsByGroup(t *testing.T) {
 	t.Run("Returns users in group with timezones", func(t *testing.T) {
 		memberCounts, _ := th.SystemAdminClient.GetChannelMemberCountsByGroup(channel.Id, true, "")
 		expectedMemberCounts := []*model.ChannelMemberCountByGroup{
-			&model.ChannelMemberCountByGroup{
+			{
 				GroupId:                     th.Group.Id,
 				ChannelMemberCount:          2,
 				ChannelMemberTimezonesCount: 2,
@@ -3298,12 +3298,12 @@ func TestGetChannelMemberCountsByGroup(t *testing.T) {
 	t.Run("Returns multiple groups with users in group with timezones", func(t *testing.T) {
 		memberCounts, _ := th.SystemAdminClient.GetChannelMemberCountsByGroup(channel.Id, true, "")
 		expectedMemberCounts := []*model.ChannelMemberCountByGroup{
-			&model.ChannelMemberCountByGroup{
+			{
 				GroupId:                     group.Id,
 				ChannelMemberCount:          1,
 				ChannelMemberTimezonesCount: 1,
 			},
-			&model.ChannelMemberCountByGroup{
+			{
 				GroupId:                     th.Group.Id,
 				ChannelMemberCount:          2,
 				ChannelMemberTimezonesCount: 2,
